@@ -37,10 +37,7 @@ Functions
 
 from fnmatch import fnmatch, fnmatchcase
 
-__all__ = ['match_path',
-           'match_path_against',
-           'match_any_paths',
-           'filter_paths']
+__all__ = ["match_path", "match_path_against", "match_any_paths", "filter_paths"]
 
 
 def _string_lower(s):
@@ -84,7 +81,7 @@ def match_path_against(pathname, patterns, case_sensitive=True):
     """
     if case_sensitive:
         match_func = fnmatchcase
-        pattern_transform_func = (lambda w: w)
+        pattern_transform_func = lambda w: w
     else:
         match_func = fnmatch
         pathname = pathname.lower()
@@ -96,10 +93,7 @@ def match_path_against(pathname, patterns, case_sensitive=True):
     return False
 
 
-def _match_path(pathname,
-                included_patterns,
-                excluded_patterns,
-                case_sensitive=True):
+def _match_path(pathname, included_patterns, excluded_patterns, case_sensitive=True):
     """Internal function same as :func:`match_path` but does not check arguments.
 
     Doctests::
@@ -122,17 +116,17 @@ def _match_path(pathname,
         excluded_patterns = set(excluded_patterns)
     common_patterns = included_patterns & excluded_patterns
     if common_patterns:
-        raise ValueError('conflicting patterns `%s` included and excluded'\
-                         % list(common_patterns))
-    return (match_path_against(pathname, included_patterns, case_sensitive)\
-            and not match_path_against(pathname, excluded_patterns,
-                                       case_sensitive))
+        raise ValueError(
+            "conflicting patterns `%s` included and excluded" % list(common_patterns)
+        )
+    return match_path_against(
+        pathname, included_patterns, case_sensitive
+    ) and not match_path_against(pathname, excluded_patterns, case_sensitive)
 
 
-def match_path(pathname,
-               included_patterns=None,
-               excluded_patterns=None,
-               case_sensitive=True):
+def match_path(
+    pathname, included_patterns=None, excluded_patterns=None, case_sensitive=True
+):
     """
     Matches a pathname against a set of acceptable and ignored patterns.
 
@@ -175,10 +169,9 @@ def match_path(pathname,
     return _match_path(pathname, included, excluded, case_sensitive)
 
 
-def filter_paths(pathnames,
-                 included_patterns=None,
-                 excluded_patterns=None,
-                 case_sensitive=True):
+def filter_paths(
+    pathnames, included_patterns=None, excluded_patterns=None, case_sensitive=True
+):
     """
     Filters from a set of paths based on acceptable patterns and
     ignorable patterns.
@@ -218,10 +211,10 @@ def filter_paths(pathnames,
         if _match_path(pathname, included, excluded, case_sensitive):
             yield pathname
 
-def match_any_paths(pathnames,
-                    included_patterns=None,
-                    excluded_patterns=None,
-                    case_sensitive=True):
+
+def match_any_paths(
+    pathnames, included_patterns=None, excluded_patterns=None, case_sensitive=True
+):
     """
     Matches from a set of paths based on acceptable patterns and
     ignorable patterns.

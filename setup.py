@@ -25,18 +25,21 @@
 import os
 from setuptools import setup
 
-PKG_DIR = 'pathtools'
+PKG_DIR = "pathtools"
 
 try:
     import importlib.util
 
     spec = importlib.util.spec_from_file_location(
-            "version", os.path.join(PKG_DIR, "version.py"))
+        "version", os.path.join(PKG_DIR, "version.py")
+    )
     version = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(version)
 except ImportError:
     import imp
-    version = imp.load_source('version', os.path.join(PKG_DIR, 'version.py'))
+
+    version = imp.load_source("version", os.path.join(PKG_DIR, "version.py"))
+
 
 def read_file(filename):
     """
@@ -48,30 +51,32 @@ def read_file(filename):
     """
     return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
-setup(name='pathtools',
-      version=version.VERSION_STRING,
-      description='File system general utilities',
-      long_description=read_file('README'),
-      author="Nuxeo",
-      author_email="maintainers-python@nuxeo.com",
-      license="MIT License",
-      url="https://github.com/nuxeo/pathtools3",
-      classifiers=[
-          'Development Status :: 3 - Alpha',
-          'Intended Audience :: Developers',
-          'License :: OSI Approved :: MIT License',
-          'Natural Language :: English',
-          'Operating System :: OS Independent',
-          'Programming Language :: Python',
-          'Programming Language :: Python :: 2',
-          'Programming Language :: Python :: 2.7',
-          'Programming Language :: Python :: 3',
-          'Programming Language :: Python :: 3.5',
-          'Programming Language :: Python :: 3.6',
-          'Programming Language :: Python :: 3.7',
-          'Topic :: Software Development :: Libraries',
-          'Topic :: System :: Filesystems',
-          'Topic :: Utilities',
-          ],
-      packages=['pathtools']
-      )
+
+setup(
+    name="pathtools",
+    version=version.VERSION_STRING,
+    description="File system general utilities",
+    long_description=read_file("README"),
+    author="Nuxeo",
+    author_email="maintainers-python@nuxeo.com",
+    license="MIT License",
+    url="https://github.com/nuxeo/pathtools3",
+    classifiers=[
+        "Development Status :: 3 - Alpha",
+        "Intended Audience :: Developers",
+        "License :: OSI Approved :: MIT License",
+        "Natural Language :: English",
+        "Operating System :: OS Independent",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 2",
+        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.5",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Topic :: Software Development :: Libraries",
+        "Topic :: System :: Filesystems",
+        "Topic :: Utilities",
+    ],
+    packages=["pathtools"],
+)
