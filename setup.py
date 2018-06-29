@@ -53,7 +53,7 @@ def read_file(filename):
 
 
 setup(
-    name="pathtools",
+    name="pathtools3",
     version=version.VERSION_STRING,
     description="File system general utilities",
     long_description=read_file("README"),
