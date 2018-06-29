@@ -23,12 +23,20 @@
 # THE SOFTWARE.
 
 import os
-import imp
 from distutils.core import setup
 
 PKG_DIR = 'pathtools'
-version = imp.load_source('version',
-                          os.path.join(PKG_DIR, 'version.py'))
+
+try:
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location(
+            "version", os.path.join(PKG_DIR, "version.py"))
+    version = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(version)
+except ImportError:
+    import imp
+    version = imp.load_source('version', os.path.join(PKG_DIR, 'version.py'))
 
 def read_file(filename):
     """
@@ -56,6 +64,11 @@ setup(name='pathtools',
           'Operating System :: OS Independent',
           'Programming Language :: Python',
           'Programming Language :: Python :: 2',
+          'Programming Language :: Python :: 2.7',
+          'Programming Language :: Python :: 3',
+          'Programming Language :: Python :: 3.5',
+          'Programming Language :: Python :: 3.6',
+          'Programming Language :: Python :: 3.7',
           'Topic :: Software Development :: Libraries',
           'Topic :: System :: Filesystems',
           'Topic :: Utilities',
