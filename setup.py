@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 # setup.py: Setup information.
 # Copyright (C) 2010 Yesudeep Mangalapilly <yesudeep@gmail.com>
+# Copyright (C) 2018 Nuxeo
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -43,10 +44,10 @@ setup(name='pathtools',
       version=version.VERSION_STRING,
       description='File system general utilities',
       long_description=read_file('README'),
-      author="Yesudeep Mangalapilly",
-      author_email="yesudeep@gmail.com",
+      author="Nuxeo",
+      author_email="maintainers-python@nuxeo.com",
       license="MIT License",
-      url="http://github.com/gorakhargosh/pathtools",
+      url="https://github.com/nuxeo/pathtools3",
       classifiers=[
           'Development Status :: 3 - Alpha',
           'Intended Audience :: Developers',
