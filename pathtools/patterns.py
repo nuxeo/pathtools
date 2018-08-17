@@ -54,7 +54,7 @@ def _string_lower(s):
 
 
 def match_path_against(pathname, patterns, case_sensitive=True):
-    """
+    r"""
     Determines whether the pathname matches any of the given wildcard patterns,
     optionally ignoring the case of the pathname and patterns.
 
