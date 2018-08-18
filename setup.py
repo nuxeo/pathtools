@@ -49,7 +49,8 @@ def read_file(filename):
     :param filename:
         The file to open and read contents from.
     """
-    return open(os.path.join(os.path.dirname(__file__), filename)).read()
+    with open(os.path.join(os.path.dirname(__file__), filename)) as f:
+        return f.read()
 
 
 setup(
