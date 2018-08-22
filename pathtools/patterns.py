@@ -81,7 +81,9 @@ def match_path_against(pathname, patterns, case_sensitive=True):
     """
     if case_sensitive:
         match_func = fnmatchcase
-        pattern_transform_func = lambda w: w
+
+        def pattern_transform_func(string):
+            return string
     else:
         match_func = fnmatch
         pathname = pathname.lower()
@@ -200,7 +202,7 @@ def filter_paths(
         True
         >>> set(filter_paths(pathnames, ["*.py", "*.conf"], ["*.status"], case_sensitive=True)) == set(["/users/gorakhargosh/foobar.py", "/etc/pdnsd.conf"])
         True
-    """
+    """  # noqa
     included = ["*"] if included_patterns is None else included_patterns
     excluded = [] if excluded_patterns is None else excluded_patterns
 
@@ -246,7 +248,7 @@ def match_any_paths(
         False
         >>> match_any_paths(pathnames, ["*.txt"], case_sensitive=True)
         False
-    """
+    """  # noqa
     included = ["*"] if included_patterns is None else included_patterns
     excluded = [] if excluded_patterns is None else excluded_patterns
 
