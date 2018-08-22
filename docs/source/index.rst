@@ -14,7 +14,7 @@ Easy installation
 -----------------
 You can use pip_ to install |project_name| quickly and easily::
 
-    $ pip install pathtools3
+    $ python3 -m pip install pathtools3
 
 
 User's Guide
