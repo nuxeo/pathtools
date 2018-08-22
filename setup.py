@@ -57,7 +57,7 @@ setup(
     name="pathtools3",
     version=version.VERSION_STRING,
     description="File system general utilities",
-    long_description=read_file("README"),
+    long_description=read_file("README.rst"),
     author="Nuxeo",
     author_email="maintainers-python@nuxeo.com",
     license="MIT License",

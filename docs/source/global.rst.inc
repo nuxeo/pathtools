@@ -4,7 +4,7 @@
 .. |author_email| replace:: maintainers-python@nuxeo.com
 .. |copyright| replace:: Copyright (C) 2018 Nuxeo.
 .. |project_name| replace:: ``pathtools3``
-.. |project_version| replace:: 0.2.0
+.. |project_version| replace:: 0.2.1
 
 .. _issue tracker: http://github.com/nuxeo/pathtools3/issues
 .. _code repository: http://github.com/nuxeo/pathtools3
